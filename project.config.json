@@ -1,0 +1,15 @@
+{
+	"description": "发展潜力小测验",
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": true,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wx1162b1629e24ad9d",
+	"projectname": "qishitest",
+	"miniprogramRoot": "dist/",
+	"condition": {}
+}

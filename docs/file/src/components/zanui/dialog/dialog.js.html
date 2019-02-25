@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">src/components/zanui/dialog/dialog.js | qishitest</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="&#x53D1;&#x5C55;&#x6F5C;&#x529B;&#x5C0F;&#x6D4B;&#x9A8C;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="qishitest"><meta property="twitter:description" content="&#x53D1;&#x5C55;&#x6F5C;&#x529B;&#x5C0F;&#x6D4B;&#x9A8C;"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-common">components/zanui/common</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-VantComponent">VantComponent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isDef">isDef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isObj">isObj</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-range">range</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-BLUE">BLUE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-GREEN">GREEN</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RED">RED</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-dialog">components/zanui/dialog</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Dialog">Dialog</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-mixins">components/zanui/mixins</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-transition">transition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-basic">basic</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-button">button</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-iphonex">iphonex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-link">link</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-openType">openType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-touch">touch</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-mixins-observer">components/zanui/mixins/observer</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-observe">observe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-observeProps">observeProps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-behavior">behavior</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-notify">components/zanui/notify</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Notify">Notify</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-toast">components/zanui/toast</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Toast">Toast</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/zanui/dialog/dialog.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var queue = [];
+
+function getContext() {
+  var pages = getCurrentPages();
+  return pages[pages.length - 1];
+}
+
+var Dialog = function Dialog(options) {
+  options = _extends({}, Dialog.currentOptions, options);
+  return new Promise(function (resolve, reject) {
+    var context = options.context || getContext();
+    var dialog = context.selectComponent(options.selector);
+    delete options.selector;
+
+    if (dialog) {
+      dialog.set(_extends({
+        onCancel: reject,
+        onConfirm: resolve
+      }, options));
+      queue.push(dialog);
+    } else {
+      console.warn(&apos;&#x672A;&#x627E;&#x5230; van-dialog &#x8282;&#x70B9;&#xFF0C;&#x8BF7;&#x786E;&#x8BA4; selector &#x53CA; context &#x662F;&#x5426;&#x6B63;&#x786E;&apos;);
+    }
+  });
+};
+
+Dialog.defaultOptions = {
+  show: true,
+  title: &apos;&apos;,
+  message: &apos;&apos;,
+  zIndex: 100,
+  overlay: true,
+  asyncClose: false,
+  messageAlign: &apos;&apos;,
+  transition: &apos;scale&apos;,
+  selector: &apos;#van-dialog&apos;,
+  confirmButtonText: &apos;&#x786E;&#x8BA4;&apos;,
+  cancelButtonText: &apos;&#x53D6;&#x6D88;&apos;,
+  showConfirmButton: true,
+  showCancelButton: false,
+  closeOnClickOverlay: false,
+  confirmButtonOpenType: &apos;&apos;
+};
+Dialog.alert = Dialog;
+
+Dialog.confirm = function (options) {
+  return Dialog(_extends({
+    showCancelButton: true
+  }, options));
+};
+
+Dialog.close = function () {
+  queue.forEach(function (dialog) {
+    dialog.close();
+  });
+  queue = [];
+};
+
+Dialog.stopLoading = function () {
+  queue.forEach(function (dialog) {
+    dialog.stopLoading();
+  });
+};
+
+Dialog.setDefaultOptions = function (options) {
+  Object.assign(Dialog.currentOptions, options);
+};
+
+Dialog.resetDefaultOptions = function () {
+  Dialog.currentOptions = _extends({}, Dialog.defaultOptions);
+};
+
+Dialog.resetDefaultOptions();
+export default Dialog;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

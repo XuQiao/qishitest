@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">src/components/zanui/picker-column/index.js | qishitest</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="&#x53D1;&#x5C55;&#x6F5C;&#x529B;&#x5C0F;&#x6D4B;&#x9A8C;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="qishitest"><meta property="twitter:description" content="&#x53D1;&#x5C55;&#x6F5C;&#x529B;&#x5C0F;&#x6D4B;&#x9A8C;"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-common">components/zanui/common</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-VantComponent">VantComponent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isDef">isDef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isObj">isObj</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-range">range</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-BLUE">BLUE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-GREEN">GREEN</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RED">RED</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-dialog">components/zanui/dialog</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Dialog">Dialog</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-mixins">components/zanui/mixins</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-transition">transition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-basic">basic</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-button">button</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-iphonex">iphonex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-link">link</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-openType">openType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-touch">touch</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-mixins-observer">components/zanui/mixins/observer</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-observe">observe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-observeProps">observeProps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-behavior">behavior</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-notify">components/zanui/notify</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Notify">Notify</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-toast">components/zanui/toast</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Toast">Toast</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/zanui/picker-column/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { VantComponent } from &apos;../common/component&apos;;
+import { isObj, range } from &apos;../common/utils&apos;;
+var DEFAULT_DURATION = 200;
+VantComponent({
+  classes: [&apos;active-class&apos;],
+  props: {
+    valueKey: String,
+    className: String,
+    itemHeight: Number,
+    visibleItemCount: Number,
+    initialOptions: {
+      type: Array,
+      value: []
+    },
+    defaultIndex: {
+      type: Number,
+      value: 0
+    }
+  },
+  data: {
+    startY: 0,
+    offset: 0,
+    duration: 0,
+    startOffset: 0,
+    options: [],
+    currentIndex: 0
+  },
+  created: function created() {
+    var _this = this;
+
+    var _this$data = this.data,
+        defaultIndex = _this$data.defaultIndex,
+        initialOptions = _this$data.initialOptions;
+    this.set({
+      currentIndex: defaultIndex,
+      options: initialOptions
+    }, function () {
+      _this.setIndex(defaultIndex);
+    });
+  },
+  computed: {
+    count: function count() {
+      return this.data.options.length;
+    },
+    baseOffset: function baseOffset() {
+      var data = this.data;
+      return data.itemHeight * (data.visibleItemCount - 1) / 2;
+    },
+    wrapperStyle: function wrapperStyle() {
+      var data = this.data;
+      return [&quot;transition: &quot; + data.duration + &quot;ms&quot;, &quot;transform: translate3d(0, &quot; + (data.offset + data.baseOffset) + &quot;px, 0)&quot;, &quot;line-height: &quot; + data.itemHeight + &quot;px&quot;].join(&apos;; &apos;);
+    }
+  },
+  watch: {
+    defaultIndex: function defaultIndex(value) {
+      this.setIndex(value);
+    }
+  },
+  methods: {
+    onTouchStart: function onTouchStart(event) {
+      this.set({
+        startY: event.touches[0].clientY,
+        startOffset: this.data.offset,
+        duration: 0
+      });
+    },
+    onTouchMove: function onTouchMove(event) {
+      var data = this.data;
+      var deltaY = event.touches[0].clientY - data.startY;
+      this.set({
+        offset: range(data.startOffset + deltaY, -(data.count * data.itemHeight), data.itemHeight)
+      });
+    },
+    onTouchEnd: function onTouchEnd() {
+      var data = this.data;
+
+      if (data.offset !== data.startOffset) {
+        this.set({
+          duration: DEFAULT_DURATION
+        });
+        var index = range(Math.round(-data.offset / data.itemHeight), 0, data.count - 1);
+        this.setIndex(index, true);
+      }
+    },
+    onClickItem: function onClickItem(event) {
+      var index = event.currentTarget.dataset.index;
+      this.setIndex(index, true);
+    },
+    adjustIndex: function adjustIndex(index) {
+      var data = this.data;
+      index = range(index, 0, data.count);
+
+      for (var i = index; i &lt; data.count; i++) {
+        if (!this.isDisabled(data.options[i])) return i;
+      }
+
+      for (var _i = index - 1; _i &gt;= 0; _i--) {
+        if (!this.isDisabled(data.options[_i])) return _i;
+      }
+    },
+    isDisabled: function isDisabled(option) {
+      return isObj(option) &amp;&amp; option.disabled;
+    },
+    getOptionText: function getOptionText(option) {
+      var data = this.data;
+      return isObj(option) &amp;&amp; data.valueKey in option ? option[data.valueKey] : option;
+    },
+    setIndex: function setIndex(index, userAction) {
+      var _this2 = this;
+
+      var data = this.data;
+      index = this.adjustIndex(index) || 0;
+      var offset = -index * data.itemHeight;
+
+      if (index !== data.currentIndex) {
+        return this.set({
+          offset: offset,
+          currentIndex: index
+        }).then(function () {
+          userAction &amp;&amp; _this2.$emit(&apos;change&apos;, index);
+        });
+      } else {
+        return this.set({
+          offset: offset
+        });
+      }
+    },
+    setValue: function setValue(value) {
+      var options = this.data.options;
+
+      for (var i = 0; i &lt; options.length; i++) {
+        if (this.getOptionText(options[i]) === value) {
+          return this.setIndex(i);
+        }
+      }
+
+      return Promise.resolve();
+    },
+    getValue: function getValue() {
+      var data = this.data;
+      return data.options[data.currentIndex];
+    }
+  }
+});</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

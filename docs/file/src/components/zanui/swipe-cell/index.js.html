@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">src/components/zanui/swipe-cell/index.js | qishitest</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="&#x53D1;&#x5C55;&#x6F5C;&#x529B;&#x5C0F;&#x6D4B;&#x9A8C;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="qishitest"><meta property="twitter:description" content="&#x53D1;&#x5C55;&#x6F5C;&#x529B;&#x5C0F;&#x6D4B;&#x9A8C;"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-common">components/zanui/common</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-VantComponent">VantComponent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isDef">isDef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isObj">isObj</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-range">range</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-BLUE">BLUE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-GREEN">GREEN</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RED">RED</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-dialog">components/zanui/dialog</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Dialog">Dialog</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-mixins">components/zanui/mixins</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-transition">transition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-basic">basic</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-button">button</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-iphonex">iphonex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-link">link</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-openType">openType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-touch">touch</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-mixins-observer">components/zanui/mixins/observer</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-observe">observe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-observeProps">observeProps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-behavior">behavior</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-notify">components/zanui/notify</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Notify">Notify</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-toast">components/zanui/toast</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Toast">Toast</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/zanui/swipe-cell/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { VantComponent } from &apos;../common/component&apos;;
+import { touch } from &apos;../mixins/touch&apos;;
+var THRESHOLD = 0.15;
+VantComponent({
+  props: {
+    disabled: Boolean,
+    leftWidth: {
+      type: Number,
+      value: 0
+    },
+    rightWidth: {
+      type: Number,
+      value: 0
+    },
+    asyncClose: Boolean
+  },
+  mixins: [touch],
+  data: {
+    offset: 0,
+    draging: false
+  },
+  computed: {
+    wrapperStyle: function wrapperStyle() {
+      var _this$data = this.data,
+          offset = _this$data.offset,
+          draging = _this$data.draging;
+      var transform = &quot;translate3d(&quot; + offset + &quot;px, 0, 0)&quot;;
+      var transition = draging ? &apos;none&apos; : &apos;.6s cubic-bezier(0.18, 0.89, 0.32, 1)&apos;;
+      return &quot;\n        -webkit-transform: &quot; + transform + &quot;;\n        -webkit-transition: &quot; + transition + &quot;;\n        transform: &quot; + transform + &quot;;\n        transition: &quot; + transition + &quot;;\n      &quot;;
+    }
+  },
+  methods: {
+    onTransitionend: function onTransitionend() {
+      this.swipe = false;
+    },
+    open: function open(position) {
+      var _this$data2 = this.data,
+          leftWidth = _this$data2.leftWidth,
+          rightWidth = _this$data2.rightWidth;
+      var offset = position === &apos;left&apos; ? leftWidth : -rightWidth;
+      this.swipeMove(offset);
+      this.resetSwipeStatus();
+    },
+    close: function close() {
+      this.set({
+        offset: 0
+      });
+    },
+    resetSwipeStatus: function resetSwipeStatus() {
+      this.swiping = false;
+      this.opened = true;
+    },
+    swipeMove: function swipeMove(offset) {
+      if (offset === void 0) {
+        offset = 0;
+      }
+
+      this.set({
+        offset: offset
+      });
+      offset &amp;&amp; (this.swiping = true);
+      !offset &amp;&amp; (this.opened = false);
+    },
+    swipeLeaveTransition: function swipeLeaveTransition(direction) {
+      var _this$data3 = this.data,
+          offset = _this$data3.offset,
+          leftWidth = _this$data3.leftWidth,
+          rightWidth = _this$data3.rightWidth;
+      var threshold = this.opened ? 1 - THRESHOLD : THRESHOLD; // right
+
+      if (direction &gt; 0 &amp;&amp; -offset &gt; rightWidth * threshold &amp;&amp; rightWidth &gt; 0) {
+        this.open(&apos;right&apos;); // left
+      } else if (direction &lt; 0 &amp;&amp; offset &gt; leftWidth * threshold &amp;&amp; leftWidth &gt; 0) {
+        this.open(&apos;left&apos;);
+      } else {
+        this.swipeMove();
+      }
+    },
+    startDrag: function startDrag(event) {
+      if (this.data.disabled) {
+        return;
+      }
+
+      this.set({
+        draging: true
+      });
+      this.touchStart(event);
+
+      if (this.opened) {
+        this.startX -= this.data.offset;
+      }
+    },
+    onDrag: function onDrag(event) {
+      if (this.data.disabled) {
+        return;
+      }
+
+      this.touchMove(event);
+      var deltaX = this.deltaX;
+      var _this$data4 = this.data,
+          leftWidth = _this$data4.leftWidth,
+          rightWidth = _this$data4.rightWidth;
+
+      if (deltaX &lt; 0 &amp;&amp; (-deltaX &gt; rightWidth || !rightWidth) || deltaX &gt; 0 &amp;&amp; (deltaX &gt; leftWidth || deltaX &gt; 0 &amp;&amp; !leftWidth)) {
+        return;
+      }
+
+      if (this.direction === &apos;horizontal&apos;) {
+        this.swipeMove(deltaX);
+      }
+    },
+    endDrag: function endDrag() {
+      if (this.data.disabled) {
+        return;
+      }
+
+      this.set({
+        draging: false
+      });
+
+      if (this.swiping) {
+        this.swipeLeaveTransition(this.data.offset &gt; 0 ? -1 : 1);
+      }
+    },
+    onClick: function onClick(event) {
+      var _event$currentTarget$ = event.currentTarget.dataset.key,
+          position = _event$currentTarget$ === void 0 ? &apos;outside&apos; : _event$currentTarget$;
+      this.$emit(&apos;click&apos;, position);
+
+      if (!this.data.offset) {
+        return;
+      }
+
+      if (this.data.asyncClose) {
+        this.$emit(&apos;close&apos;, {
+          position: position,
+          instance: this
+        });
+      } else {
+        this.swipeMove(0);
+      }
+    }
+  }
+});</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

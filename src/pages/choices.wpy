@@ -1,0 +1,364 @@
+<style scoped lang="less">
+  .paper-title {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .percentage-wrap {
+    padding: 20px;
+
+    .tip {
+      display: block;
+      font-size: 12px;
+      line-height: 20px;
+      padding: 10px 0;
+    }
+  }
+
+  .q-wrap {
+    padding: 20px;
+
+    .q {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+    }
+
+    .choice-wrap {
+      margin-top: 20px;
+
+      .choice {
+        color: #ccc;
+        position: relative;
+
+        .title {
+          display: inline-block;
+          height: 30px;
+          color: #333;
+        }
+      }
+    }
+  }
+
+  .tip-wrap {
+    margin-top: 20px;
+
+    .tip {
+      font-size: 12px;
+      color: #ccc;
+    }
+  }
+</style>
+<template>
+  <view>
+    <text class="paper-title">{{item.title}}</text>
+
+    <view wx:if="{{!isOver}}">
+      <view class="percentage-wrap">
+        <text class="tip">当前进度</text>
+        <van-progress percentage="{{percentage}}"></van-progress>
+
+        <text class="tip mt10">剩余时间 : {{leftSeconds}}s</text>
+        <van-slider
+          value="{{ sliderLeft }}"
+          use-button-slot
+          bind:drag="onDrag"
+        >
+        </van-slider>
+      </view>
+
+      <view class="q-wrap">
+
+        <text class="q">{{question.q}}</text>
+
+        <view class="choice-wrap">
+          <van-cell-group>
+            <repeat for="{{question.c}}" item="one" index="index" key="index">
+              <view class="choice">
+                <van-cell
+                  @tap="choose({{index}})">
+
+                  <view slot="title">
+                    <text class="title">{{one}}</text>
+                  </view>
+
+                  <view slot="right-icon">
+                    <block wx:if="{{(currentChoiceIndex === index && isChoiceProcessing)}}">
+                      <van-loading size="20px" color="#333"></van-loading>
+                    </block>
+                    <block wx:if="{{(currentChoiceIndex === index && !isChoiceProcessing)}}">
+                      <block wx:if="{{currentChoiceIndex + 1 === question.a}}">
+                        <van-icon name="passed" color="#d1ecf1" size="20px"></van-icon>
+                      </block>
+                      <block wx:if="{{currentChoiceIndex + 1 !== question.a}}">
+                        <van-icon name="close" color="#f8d7da" size="20px"></van-icon>
+                      </block>
+                    </block>
+                  </view>
+                </van-cell>
+              </view>
+            </repeat>
+          </van-cell-group>
+
+          <view class="tip-wrap">
+            <van-icon name="smile-o"></van-icon>
+            <text class="tip">点击即可选择</text>
+          </view>
+
+        </view>
+
+      </view>
+    </view>
+
+    <button wx:if="{{isOver}}" @tap="gohome">您已经完成考试, 点击返回首页</button>
+
+    <van-toast id="custom-selector" />
+    <van-notify id="van-notify" />
+  </view>
+</template>
+<script>
+  import wepy from 'wepy';
+  import LOG from 'easy.log.js'
+  import local from '../data/local'
+  import util from '../common/util'
+  import Toast from '../components/zanui/toast/toast';
+  import Notify from '../components/zanui/notify/notify';
+
+  const log = LOG("app.choices");
+
+  export default class MyPage extends wepy.page {
+    // export default class MyComponent extends wepy.component {
+    customData = {}  // 自定义数据
+
+
+    daojishi() {
+      return new Promise((resolve, reject) => {
+        let second = 5;
+
+        const toast = Toast.loading({
+          duration: 0,       // 持续展示 toast
+          forbidClick: true, // 禁用背景点击
+          message: `倒计时 ${second} 秒`,
+          loadingType: 'spinner',
+          selector: '#custom-selector'
+        });
+
+
+        const timer = setInterval(() => {
+          second--;
+          if (second) {
+            toast.setData({
+              message: `倒计时 ${second} 秒`
+            });
+          } else {
+            clearInterval(timer);
+            Toast.clear();
+            resolve(true);
+          }
+        }, 1000);
+      })
+    }
+
+    showBeginTip() {
+      Notify({
+        text: '开始测验',
+        duration: 1000,
+        selector: '#van-notify',
+        backgroundColor: '#F56C6C'
+      });
+    }
+
+    start() {
+      let period = 500; // ms
+      let exeCount = this.maxSeconds * (1000 / period);
+
+      let interval = setInterval(() => {
+        if (this.isChoiceProcessing || this.isCheckProcessing) {
+          return;
+        }
+
+        this.sliderLeft -= 100 / exeCount;
+        if (this.sliderLeft <= 0) {
+          this.sliderLeft = 0;
+        }
+        this.leftSeconds = Math.ceil(this.sliderLeft / 100 * this.maxSeconds);
+        if (this.sliderLeft <= 0) {
+          clearInterval(interval);
+          this.showHonor();
+        } else {
+          this.$apply();
+        }
+      }, period);
+      this.intervalList.push(interval);
+    }
+
+    async onLoad(options) {
+      let DATA = local.get();
+      let id = options.id || "yxlm";
+      let item = DATA[id];
+      util.shuffle(item.questions);
+      this.item = item;
+      this.id = id;
+      log(item);
+
+      await this.daojishi();
+      this.showBeginTip();
+      this.start();
+    }  // 在Page和Component共用的生命周期函数
+
+    onShow() {
+    }  // 只在Page中存在的页面生命周期函数
+
+    config = {
+      usingComponents: {
+        "van-btn": "../components/zanui/button/index",
+        "van-progress": "../components/zanui/progress/index",
+        "van-checkbox": "../components/zanui/checkbox/index",
+        "van-cell": "../components/zanui/cell/index",
+        "van-cell-group": "../components/zanui/cell-group/index",
+        "van-loading": "../components/zanui/loading/index",
+        "van-icon": "../components/zanui/icon/index",
+        "van-slider": "../components/zanui/slider/index",
+        "van-toast": "../components/zanui/toast/index",
+        "van-notify": "../components/zanui/notify/index",
+      }
+    };  // 只在Page实例中存在的配置数据，对应于原生的page.json文件
+
+
+    resetTimer() {
+      this.sliderLeft = 100;
+      this.leftSeconds = this.maxSeconds;
+    }
+
+    data = {
+      sliderLeft: 100,
+      leftSeconds: 10,
+      maxSeconds: 10,
+      id: "",
+      item: null,
+      index: 0,
+      isChoiceProcessing: false,
+      currentChoiceIndex: -1,
+      isCanClickChoice: true,
+      intervalList: [],
+      isCheckProcessing: false,
+      isOver: false,
+    };  // 页面所需数据均需在这里声明，可用于模板数据绑定
+
+    components = {};  // 声明页面中所引用的组件，或声明组件中所引用的子组件
+
+    mixins = [];  // 声明页面所引用的Mixin实例
+
+    computed = {
+      question() {
+        if (this.item == null) {
+          return {};
+        }
+        return this.item.questions[this.index];
+      },
+      percentage() {
+        if (this.index === 0) return 0;
+        return Math.floor(this.index / this.item.questions.length * 100);
+      }
+    };  // 声明计算属性（详见后文介绍）
+
+    watch = {};  // 声明数据watcher（详见后文介绍）
+
+    clearInterval() {
+      this.intervalList.forEach(i => {
+        clearInterval(i);
+      })
+    }
+
+
+    getLevel() {
+      let level = this.item.levelList;
+      let anwserIndex = this.index;
+      let allCount = this.item.questions.length;
+
+      let levelIndex = Math.floor((anwserIndex / allCount) * level.length);
+      if (levelIndex >= level.length) levelIndex = level.length - 1;
+      let levelResult = level[levelIndex];
+      return levelResult;
+    }
+
+    getPercentage() {
+      return ((this.index / this.item.questions.length) * 100).toFixed(1) + "%";
+    }
+
+    showHonor() {
+      this.isOver = true;
+      this.clearInterval();
+
+      let level = this.getLevel();
+      let percentage = this.getPercentage();
+      let replacements = {
+        level,
+        percentage
+      };
+      let allCount = this.item.questions.length;
+      let hornorTemplate = this.item.honorTemplate;
+      for (let replaceReg in replacements) {
+        hornorTemplate = hornorTemplate.replace("${" + replaceReg + "}", replacements[replaceReg]);
+      }
+      let pj = hornorTemplate;
+      let url = `result?id=${this.id}&rightNum=${this.index}&pj=${pj}&allNum=${allCount}`;
+      this.$apply();
+      wx.navigateTo({
+        url
+      })
+    }
+
+    methods = {
+      gohome() {
+        wx.navigateTo({
+          url: "home"
+        })
+      },
+
+      async choose(index) {
+        if (!this.isCanClickChoice) return;
+        this.isCanClickChoice = false;
+        this.isChoiceProcessing = true;
+        this.currentChoiceIndex = index;
+
+        await util.sleep(800);
+        this.isChoiceProcessing = false;
+        this.isCheckProcessing = true;
+        this.$apply();
+
+        await util.sleep(200);
+
+        let isWrongOrOver = false;
+
+        if ((index + 1) === this.question.a) {
+          this.index += 1;
+          this.$apply();
+          if (this.index >= this.item.questions.length) {
+            isWrongOrOver = true;
+          }
+        } else {
+          isWrongOrOver = true;
+        }
+
+        this.isCheckProcessing = false;
+        if (isWrongOrOver) {
+          this.showHonor();
+        } else {
+          this.currentChoiceIndex = -1;
+          this.isCanClickChoice = true;
+          this.resetTimer();
+          this.$apply();
+        }
+      }
+    };  // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
+
+    events = {};  // 声明组件之间的事件处理函数
+  }
+</script>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">src/components/zanui/datetime-picker/index.js | qishitest</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="&#x53D1;&#x5C55;&#x6F5C;&#x529B;&#x5C0F;&#x6D4B;&#x9A8C;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="qishitest"><meta property="twitter:description" content="&#x53D1;&#x5C55;&#x6F5C;&#x529B;&#x5C0F;&#x6D4B;&#x9A8C;"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-common">components/zanui/common</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-VantComponent">VantComponent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isDef">isDef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isObj">isObj</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-range">range</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-BLUE">BLUE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-GREEN">GREEN</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RED">RED</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-dialog">components/zanui/dialog</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Dialog">Dialog</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-mixins">components/zanui/mixins</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-transition">transition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-basic">basic</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-button">button</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-iphonex">iphonex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-link">link</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-openType">openType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-touch">touch</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-mixins-observer">components/zanui/mixins/observer</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-observe">observe</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-observeProps">observeProps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-behavior">behavior</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-notify">components/zanui/notify</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Notify">Notify</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-zanui-toast">components/zanui/toast</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Toast">Toast</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/zanui/datetime-picker/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { VantComponent } from &apos;../common/component&apos;;
+import { isDef } from &apos;../common/utils&apos;;
+var currentYear = new Date().getFullYear();
+
+function isValidDate(date) {
+  return isDef(date) &amp;&amp; !isNaN(new Date(date).getTime());
+}
+
+function range(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+}
+
+function padZero(val) {
+  return (&quot;00&quot; + val).slice(-2);
+}
+
+function times(n, iteratee) {
+  var index = -1;
+  var result = Array(n);
+
+  while (++index &lt; n) {
+    result[index] = iteratee(index);
+  }
+
+  return result;
+}
+
+function getTrueValue(formattedValue) {
+  if (!formattedValue) return;
+
+  while (isNaN(parseInt(formattedValue, 10))) {
+    formattedValue = formattedValue.slice(1);
+  }
+
+  return parseInt(formattedValue, 10);
+}
+
+function getMonthEndDay(year, month) {
+  return 32 - new Date(year, month - 1, 32).getDate();
+}
+
+VantComponent({
+  props: {
+    value: null,
+    title: String,
+    loading: Boolean,
+    itemHeight: {
+      type: Number,
+      value: 44
+    },
+    visibleItemCount: {
+      type: Number,
+      value: 5
+    },
+    confirmButtonText: {
+      type: String,
+      value: &apos;&#x786E;&#x8BA4;&apos;
+    },
+    cancelButtonText: {
+      type: String,
+      value: &apos;&#x53D6;&#x6D88;&apos;
+    },
+    type: {
+      type: String,
+      value: &apos;datetime&apos;
+    },
+    showToolbar: {
+      type: Boolean,
+      value: true
+    },
+    minDate: {
+      type: Number,
+      value: new Date(currentYear - 10, 0, 1).getTime()
+    },
+    maxDate: {
+      type: Number,
+      value: new Date(currentYear + 10, 11, 31).getTime()
+    },
+    minHour: {
+      type: Number,
+      value: 0
+    },
+    maxHour: {
+      type: Number,
+      value: 23
+    },
+    minMinute: {
+      type: Number,
+      value: 0
+    },
+    maxMinute: {
+      type: Number,
+      value: 59
+    }
+  },
+  data: {
+    innerValue: Date.now(),
+    columns: []
+  },
+  watch: {
+    value: function value(val) {
+      var _this = this;
+
+      var data = this.data;
+      val = this.correctValue(val);
+      var isEqual = val === data.innerValue;
+
+      if (!isEqual) {
+        this.updateColumnValue(val).then(function () {
+          _this.$emit(&apos;input&apos;, val);
+        });
+      }
+    },
+    type: &apos;updateColumns&apos;,
+    minHour: &apos;updateColumns&apos;,
+    maxHour: &apos;updateColumns&apos;,
+    minMinute: &apos;updateColumns&apos;,
+    maxMinute: &apos;updateColumns&apos;
+  },
+  methods: {
+    getPicker: function getPicker() {
+      if (this.picker == null) {
+        var picker = this.picker = this.selectComponent(&apos;.van-datetime-picker&apos;);
+        var setColumnValues = picker.setColumnValues;
+
+        picker.setColumnValues = function () {
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key &lt; _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+
+          return setColumnValues.apply(picker, [].concat(args, [false]));
+        };
+      }
+
+      return this.picker;
+    },
+    updateColumns: function updateColumns() {
+      var results = this.getRanges().map(function (_ref, index) {
+        var type = _ref.type,
+            range = _ref.range;
+        var values = times(range[1] - range[0] + 1, function (index) {
+          var value = range[0] + index;
+          value = type === &apos;year&apos; ? &quot;&quot; + value : padZero(value);
+          return value;
+        });
+        return {
+          values: values
+        };
+      });
+      return this.set({
+        columns: results
+      });
+    },
+    getRanges: function getRanges() {
+      var data = this.data;
+
+      if (data.type === &apos;time&apos;) {
+        return [{
+          type: &apos;hour&apos;,
+          range: [data.minHour, data.maxHour]
+        }, {
+          type: &apos;minute&apos;,
+          range: [data.minMinute, data.maxMinute]
+        }];
+      }
+
+      var _this$getBoundary = this.getBoundary(&apos;max&apos;, data.innerValue),
+          maxYear = _this$getBoundary.maxYear,
+          maxDate = _this$getBoundary.maxDate,
+          maxMonth = _this$getBoundary.maxMonth,
+          maxHour = _this$getBoundary.maxHour,
+          maxMinute = _this$getBoundary.maxMinute;
+
+      var _this$getBoundary2 = this.getBoundary(&apos;min&apos;, data.innerValue),
+          minYear = _this$getBoundary2.minYear,
+          minDate = _this$getBoundary2.minDate,
+          minMonth = _this$getBoundary2.minMonth,
+          minHour = _this$getBoundary2.minHour,
+          minMinute = _this$getBoundary2.minMinute;
+
+      var result = [{
+        type: &apos;year&apos;,
+        range: [minYear, maxYear]
+      }, {
+        type: &apos;month&apos;,
+        range: [minMonth, maxMonth]
+      }, {
+        type: &apos;day&apos;,
+        range: [minDate, maxDate]
+      }, {
+        type: &apos;hour&apos;,
+        range: [minHour, maxHour]
+      }, {
+        type: &apos;minute&apos;,
+        range: [minMinute, maxMinute]
+      }];
+      if (data.type === &apos;date&apos;) result.splice(3, 2);
+      if (data.type === &apos;year-month&apos;) result.splice(2, 3);
+      return result;
+    },
+    correctValue: function correctValue(value) {
+      var data = this.data; // validate value
+
+      var isDateType = data.type !== &apos;time&apos;;
+
+      if (isDateType &amp;&amp; !isValidDate(value)) {
+        value = data.minDate;
+      } else if (!isDateType &amp;&amp; !value) {
+        var minHour = data.minHour;
+        value = padZero(minHour) + &quot;:00&quot;;
+      } // time type
+
+
+      if (!isDateType) {
+        var _value$split = value.split(&apos;:&apos;),
+            hour = _value$split[0],
+            minute = _value$split[1];
+
+        hour = padZero(range(hour, data.minHour, data.maxHour));
+        minute = padZero(range(minute, data.minMinute, data.maxMinute));
+        return hour + &quot;:&quot; + minute;
+      } // date type
+
+
+      value = Math.max(value, data.minDate);
+      value = Math.min(value, data.maxDate);
+      return value;
+    },
+    getBoundary: function getBoundary(type, innerValue) {
+      var value = new Date(innerValue);
+      var boundary = new Date(this.data[type + &quot;Date&quot;]);
+      var year = boundary.getFullYear();
+      var month = 1;
+      var date = 1;
+      var hour = 0;
+      var minute = 0;
+
+      if (type === &apos;max&apos;) {
+        month = 12;
+        date = getMonthEndDay(value.getFullYear(), value.getMonth() + 1);
+        hour = 23;
+        minute = 59;
+      }
+
+      if (value.getFullYear() === year) {
+        month = boundary.getMonth() + 1;
+
+        if (value.getMonth() + 1 === month) {
+          date = boundary.getDate();
+
+          if (value.getDate() === date) {
+            hour = boundary.getHours();
+
+            if (value.getHours() === hour) {
+              minute = boundary.getMinutes();
+            }
+          }
+        }
+      }
+
+      return {
+        [type + &quot;Year&quot;]: year,
+        [type + &quot;Month&quot;]: month,
+        [type + &quot;Date&quot;]: date,
+        [type + &quot;Hour&quot;]: hour,
+        [type + &quot;Minute&quot;]: minute
+      };
+    },
+    onCancel: function onCancel() {
+      this.$emit(&apos;cancel&apos;);
+    },
+    onConfirm: function onConfirm() {
+      this.$emit(&apos;confirm&apos;, this.data.innerValue);
+    },
+    onChange: function onChange() {
+      var _this2 = this;
+
+      var data = this.data;
+      var value;
+      var picker = this.getPicker();
+
+      if (data.type === &apos;time&apos;) {
+        var indexes = picker.getIndexes();
+        value = indexes[0] + data.minHour + &quot;:&quot; + (indexes[1] + data.minMinute);
+      } else {
+        var values = picker.getValues();
+        var year = getTrueValue(values[0]);
+        var month = getTrueValue(values[1]);
+        var maxDate = getMonthEndDay(year, month);
+        var date = getTrueValue(values[2]);
+
+        if (data.type === &apos;year-month&apos;) {
+          date = 1;
+        }
+
+        date = date &gt; maxDate ? maxDate : date;
+        var hour = 0;
+        var minute = 0;
+
+        if (data.type === &apos;datetime&apos;) {
+          hour = getTrueValue(values[3]);
+          minute = getTrueValue(values[4]);
+        }
+
+        value = new Date(year, month - 1, date, hour, minute);
+      }
+
+      value = this.correctValue(value);
+      this.updateColumnValue(value).then(function () {
+        _this2.$emit(&apos;input&apos;, value);
+
+        _this2.$emit(&apos;change&apos;, picker);
+      });
+    },
+    updateColumnValue: function updateColumnValue(value) {
+      var _this3 = this;
+
+      var values = [];
+      var data = this.data;
+      var picker = this.getPicker();
+
+      if (data.type === &apos;time&apos;) {
+        var pair = value.split(&apos;:&apos;);
+        values = [pair[0], pair[1]];
+      } else {
+        var date = new Date(value);
+        values = [&quot;&quot; + date.getFullYear(), padZero(date.getMonth() + 1)];
+
+        if (data.type === &apos;date&apos;) {
+          values.push(padZero(date.getDate()));
+        }
+
+        if (data.type === &apos;datetime&apos;) {
+          values.push(padZero(date.getDate()), padZero(date.getHours()), padZero(date.getMinutes()));
+        }
+      }
+
+      return this.set({
+        innerValue: value
+      }).then(function () {
+        return _this3.updateColumns();
+      }).then(function () {
+        return picker.setValues(values);
+      });
+    }
+  },
+  created: function created() {
+    var _this4 = this;
+
+    var innerValue = this.correctValue(this.data.value);
+    this.updateColumnValue(innerValue).then(function () {
+      _this4.$emit(&apos;input&apos;, innerValue);
+    });
+  }
+});</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
