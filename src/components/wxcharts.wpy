@@ -1,0 +1,109 @@
+<style>
+    .radarCanvas{
+        display:block;
+        width: 300px;
+        height: 300px;
+    }
+</style>
+<template>
+<canvas
+    canvasId="radarCanvas"></canvas>
+</template>
+<script>
+import wepy from 'wepy';
+import wxCharts from '../common/wxcharts-min';
+
+export default class Wxcharts extends wepy.component {
+    props = {
+
+      syncCategories: {
+        type: Object,
+        default: ['A', 'B', 'C', 'D', 'E']
+      },
+
+      // 父页面传入，请求url
+      syncSeries: {
+        type: Object,
+        default: [{
+            name: '方向',
+            data: [0.15, 0.2, 0.45, 0.37, 0.4],
+            format: function (val) {
+                  return val.toFixed(2) * 100 + '%';
+            },
+            extra: {
+                radar: {
+                    max: 1
+                }
+            }
+        }]
+      }, 
+
+      canvasId: String,
+      canvasUrl: {
+        type: String,
+        twoWay: true,
+      },
+    };
+
+    onLoad () { 
+    };
+
+    
+    methods = {
+      create() {
+        if (!this.data.canvasId) {
+            console.warn('组件需绑定 canvasId 变量，例：<wx-canvas id="mychart-dom-bar" ' +
+                'canvas-id="mychart-bar" ></wx-canvas>');
+            return;
+        }
+
+        this.data.windowWidth = 320;
+        wx.getSystemInfoSync({
+            success: (res) => {
+                this.data.ratio = res.pixelRatio;
+                this.data.screenWidth = res.screenWidth;
+                this.data.windowWidth = res.windowWidth;
+            },
+        });
+
+        new wxCharts({
+            canvasId: this.data.canvasId,
+            type: 'radar',
+            categories: this.data.syncCategories,
+            series: this.data.syncSeries,
+            width: this.data.windowWidth,
+            height: this.data.windowWidth,
+            legend: false,
+            extra: {
+                radar: {
+                    max: 12
+                }
+            }
+        });
+
+        var ratio = this.data.ratio;
+        var unit = this.data.screenWidth / 375;
+        this.ctx = wx.createCanvasContext(this.data.canvasId, this);
+        this.ctx.draw(true, setTimeout(() => {
+            wx.canvasToTempFilePath({
+                x: 0,
+                y: 0,
+                width: this.data.windowWidth,
+                height: this.data.windowWidth,
+                destWidth: 634 * 750 / this.data.windowWidth,
+                destHeight:  634 * 750 / this.data.windowWidth,
+                canvasId: this.data.canvasId,
+                success: (res) => {
+                  var tempFilePath = res.tempFilePath;
+                  this.canvasUrl = tempFilePath;
+                  this.$apply();
+                },
+                fail: function (res) {
+                    console.log(res)
+                }
+            })
+        }, 1500) ,this);
+      }
+    }
+}
+</script>

@@ -48,12 +48,32 @@ module.exports = {
   },
   shuffle(a) {
     var j, x, i;
+    var b = Object.assign([], a);
+    var c = [];
     for (i = a.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1));
       x = a[i];
       a[i] = a[j];
       a[j] = x;
     }
-    return a;
+    for (i = 0; i < a.length; i++) {
+      c.push(b.indexOf(a[i]));
+    }
+    return c;
+  },
+  getKeysWithHighestValue(o){
+    let high = Object.keys(o).filter(x => {
+         return o[x] == Math.max.apply(null, 
+         Object.values(o));
+    });
+    return high[Math.floor(Math.random() * high.length)];
+  },
+  doshuffle(a, index){
+    var i;
+    var b = Object.assign([], a);
+    for (i = 0; i < a.length; i++) {
+      b[i] = a[index[i]];
+    }
+    return b;
   }
 };

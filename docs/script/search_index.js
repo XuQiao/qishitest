@@ -420,6 +420,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/common/wxcharts-min.js",
+    "file/src/common/wxcharts-min.js.html",
+    "src/common/wxcharts-min.js",
+    "file"
+  ],
+  [
     "src/components/poster-canvas/poster/index.js",
     "file/src/components/poster-canvas/poster/index.js.html",
     "src/components/poster-canvas/poster/index.js",
@@ -831,6 +837,12 @@ window.esdocSearchIndex = [
     "src/data/hefei.js",
     "file/src/data/hefei.js.html",
     "src/data/hefei.js",
+    "file"
+  ],
+  [
+    "src/data/ib.js",
+    "file/src/data/ib.js.html",
+    "src/data/ib.js",
     "file"
   ],
   [

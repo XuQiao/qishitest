@@ -23,7 +23,13 @@
     font-size:12px;
   }
   .loading-do{
-    padding-top:100px;
+    padding-top:30px;
+  }
+  .radarCanvas{
+    margin: 20px 0;
+    display:block;
+    width: 300px;
+    height: 300px;
   }
 </style>
 <template>
@@ -34,12 +40,18 @@
     left-arrow
     bind:click-left="onClickLeft"
   />
-
   <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
   </poster>
+  <wxcharts class="radarCanvas" :syncCategories.sync="radarProp" :syncSeries.sync="radarData" :canvasUrl="radarUrl" canvasId="radarCanvas">
+  </wxcharts>
 
   <view class="loading-wrap" wx:if="{{detail == null}}">
-    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">点击生成您的专属报告</button>
+    <button type="primary"
+  size="{{primarySize}}"
+  loading="{{loading}}"
+  plain="{{plain}}"
+  disabled="{{disabled}}"
+  open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">点击生成您的专属报告</button>
     <text class="small-tip">出于安全策略需要点击才能获取您的信息, 给您造成不便敬请谅解</text>
 
     <view class="loading-do" wx:if="{{doing}}">
@@ -60,6 +72,8 @@
   import local from '../data/local'
   import util from '../common/util'
   import Poster from '../components/poster-canvas/poster/poster'
+  import Wxcharts from '../components/wxcharts'
+
 
   const log = LOG("app.result");
 
@@ -100,25 +114,50 @@
       })
     }
 
+    createRadar() {
+      let DATA = local.get();
+      let item = DATA[this.options.id];
+      let radarProp = item.radarProp;
+      let choices = this.options.choices;
+      var scores = {};
+      for (var choice in choices) {
+        let a = this.options.questions[choice].a;
+        let b = this.options.questions[choice].b;
+        var prop1 = radarProp[choice];
+        var prop2 = radarProp[parseInt(choice)+radarProp.length/2];
+        scores[prop1] = a[choices[choice]];
+        scores[prop2] = b[choices[choice]];
+      }
+      this.radarProp = radarProp;
+      var radarData = []
+      for(var i in radarProp){
+        radarData.push(scores[radarProp[i]]);
+      }
+      this.radarData = [{
+        name: "",
+        data: radarData,
+      }];
+      this.$apply();
+      this.$invoke("wxcharts", "create");
+    }
+
     start(userInfo) {
       let DATA = local.get();
       let nickName = userInfo.nickName;
       let avatarUrl = userInfo.avatarUrl;
-
       let params = Object.assign({
-        id: 'zjl',
-        rightNum: 2,
-        pj: "被联盟认定为超凡大师",
-        allNum: "20"
+        id: 'ib',
+        rightNum: 4,
+        pj: ["你才智过人, 特立独行, 领导有方, 懂得钻研",
+            "在平行宇宙里，正在著名的高盛工作！"],
+        allNum: "4",
+        choices: {}
       }, this.options);
       let item = DATA[params.id];
-      this.item = item;
-      log(params);
-
-      this.id = params.id;
       this.rightNum = params.rightNum;
       this.pj = params.pj;
-
+      this.id = params.id;
+      this.item = item;
       this.posterConfig = {
         width: 750,
         height: 1334,
@@ -173,48 +212,33 @@
             zIndex: 200,
           },
           {
-            x: 59,
-            y: 895,
-            baseLine: 'middle',
-            text: [
-              {
-                text: '答对',
-                fontSize: 28,
-                color: '#ec4b4b',
-              },
-              {
-                text: `${params.rightNum} 道题目`,
-                fontSize: 28,
-                color: '#ec4b4b',
-                marginLeft: 10,
-              }
-            ]
+            x: 80,
+            y: 200,
+            baseLine: 'top',
+            text: "测  试  完  成！",
+            fontSize: 40,
+            color: '#1e90ff',
           },
           {
-            x: 522,
-            y: 895,
+            x: 59,
+            y: 865,
             baseLine: 'middle',
-            text: `共${params.allNum}题`,
+            text: `${params.pj[0]}`,
             fontSize: 28,
-            color: '#929292',
+            color: '#ec4b4b',
           },
           {
             x: 59,
-            y: 945,
-            baseLine: 'middle',
-            text: [
-              {
-                text: `${params.pj}`,
-                fontSize: 28,
-                color: '#ec4b4b',
-              },
-            ]
+            y: 910,
+            text: `${params.pj[1]}`,
+            fontSize: 28,
+            color: '#ec4b4b',
           },
           {
             x: 360,
             y: 1065,
             baseLine: 'top',
-            text: '长按参与考试',
+            text: '长按保存图片',
             fontSize: 38,
             color: '#080808',
           },
@@ -222,10 +246,34 @@
             x: 360,
             y: 1123,
             baseLine: 'top',
-            text: `和 ${nickName} 一较高下`,
+            text: `和 ${nickName} 一起做`,
             fontSize: 28,
             color: '#929292',
           },
+          {
+            x: 59,
+            y: 920,
+            baseLine: 'top',            
+            text: `想了解更多的投行背景知识吗？扫描以下二维码`,
+            fontSize: 30,
+            color: '#343239',
+          },
+          {
+            x: 59,
+            y: 950,
+            baseLine: 'top', 
+            text: `关注琪石职业发展俱乐部微信公共号（qishicpc)`,
+            fontSize: 30,
+            color: '#343239',
+          },
+          {
+            x: 360,
+            y: 1180,
+            baseLine: 'top',
+            text: `把结果分享到朋友圈`,
+            fontSize: 30,
+            color: '#929292',
+          }
         ],
         images: [
           // 第一张图
@@ -237,6 +285,7 @@
             borderRadius: 62,
             url: `${avatarUrl}`
           },
+          /*
           {
             width: 634,
             height: 634,
@@ -244,12 +293,13 @@
             y: 210,
             url: this.getRelativeImgPath(`${item.img}`),
           },
+          */
           {
             width: 220,
             height: 220,
             x: 92,
             y: 1020,
-            url: this.getRelativeImgPath('https://qcloudtest-1257773951.cos.ap-guangzhou.myqcloud.com/mini-program/qishitest/mmqrcode1551039491178.png'),
+            url: this.getRelativeImgPath('https://qcloudtest-1257773951.cos.ap-guangzhou.myqcloud.com/mini-program/qishitest/qrcode_qishicpc_1.jpg'),
           },
           {
             width: 750,
@@ -257,10 +307,17 @@
             x: 0,
             y: 1244,
             url:  this.getRelativeImgPath('https://qcloudtest-1257773951.cos.ap-guangzhou.myqcloud.com/mini-program/qishitest/result-bottom.png'),
-          }
+          },
+          {
+            width: 634,
+            height: 634,
+            x: 50,
+            y: 190,
+            url: `${this.radarUrl}`,
+          },
         ]
       };
-
+        
       this.$apply();
 
       //this.$invoke("poster", "create");
@@ -270,7 +327,11 @@
     }
 
     async onLoad(options) {
+      options.choices = JSON.parse(options.choices);
+      options.questions = JSON.parse(options.questions);
+      options.pj = JSON.parse(options.pj);
       this.options = options;
+      this.createRadar();
     }  // 在Page和Component共用的生命周期函数
 
     onShow() {
@@ -293,10 +354,15 @@
       rightNum: 0,
       pj: "",
       posterConfig: {},
-      item: {}
+      item: {},
+      radarProp: null,
+      radarData: null,
+      radarUrl: '',
     };  // 页面所需数据均需在这里声明，可用于模板数据绑定
 
-    components = {};  // 声明页面中所引用的组件，或声明组件中所引用的子组件
+    components = {
+      wxcharts: Wxcharts,
+    };  // 声明页面中所引用的组件，或声明组件中所引用的子组件
 
     mixins = [];  // 声明页面所引用的Mixin实例
 
@@ -306,7 +372,6 @@
 
     methods = {
       onGetUserInfo(e) {
-        log(e);
         this.doing = true;
         this.start(e.detail.userInfo);
       },
@@ -324,6 +389,7 @@
       }
     };  // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
 
-    events = {};  // 声明组件之间的事件处理函数
+    events = {
+    };  // 声明组件之间的事件处理函数
   }
 </script>
